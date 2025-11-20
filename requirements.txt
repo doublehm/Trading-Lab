@@ -13,3 +13,4 @@ plotly
 torch
 pytrends
 nltk
+xgboost
