@@ -1,0 +1,39 @@
+services:
+  # 🌐 Web service: your Streamlit app
+  - type: web
+    name: trading-lab
+    env: python
+    plan: free
+    buildCommand: |
+      pip install -r requirements.txt
+      python -c "import nltk; nltk.download('vader_lexicon')"
+    startCommand: >
+      streamlit run src/dashboards/streamlit_app.py
+      --server.port $PORT
+      --server.address 0.0.0.0
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: trading-db
+          property: connectionString
+
+  # 🔁 Worker service: your Binance → Postgres ETL loop
+  - type: worker
+    name: trading-etl
+    env: python
+    plan: free
+    buildCommand: |
+      pip install -r requirements.txt
+      python -c "import nltk; nltk.download('vader_lexicon')"
+    startCommand: >
+      python -m src.data_pipeline.etl_jobs
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: trading-db
+          property: connectionString
+
+databases:
+  - name: trading-db
+    plan: free
+

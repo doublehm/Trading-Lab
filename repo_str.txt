@@ -1,0 +1,30 @@
+hiive-trading-lab/
+  README.md
+  requirements.txt
+  src/
+    __init__.py
+    config.py
+    data_pipeline/
+      __init__.py
+      binance_client.py
+      yahoo_client.py
+      database.py
+      etl_jobs.py
+    analytics/
+      __init__.py
+      order_book.py
+      forecasting.py
+      volatility.py
+      alt_data.py
+      sentiment.py
+    dashboards/
+      streamlit_app.py
+  notebooks/
+    01_explore_binance.ipynb
+    02_forecasting_playground.ipynb
+    ...
+  data/        # small sample files if needed
+  sql/
+    schema.sql
+    seed.sql
+

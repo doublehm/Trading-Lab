@@ -1,0 +1,14 @@
+pandas
+numpy
+requests
+yfinance
+SQLAlchemy
+psycopg2-binary
+python-dotenv
+streamlit
+scikit-learn
+prophet
+matplotlib
+plotly
+torch
+pytrends
