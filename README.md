@@ -1,12 +1,12 @@
 
-# Hiive Trading Lab
+# Trading Lab
 A modular analytics platform designed to explore order books, liquidity, forecasting, volatility, alternative data, and sentiment-driven trading strategies. 
 
-This project simulates the type of internal analytics tooling used by modern electronic marketplaces such as Hiive. It combines real-time data pipelines, machine learning models, and interactive dashboards to demonstrate practical insights into price discovery, liquidity dynamics, and market behavior.
+This project simulates the type of internal analytics tooling used by modern electronic marketplaces. It combines real-time data pipelines, machine learning models, and interactive dashboards to demonstrate practical insights into price discovery, liquidity dynamics, and market behavior.
 
 ## 🎯 Project Purpose
 
-Hiive operates in a domain where price discovery, liquidity distribution, and order book transparency matter deeply. 
+Trading Lab is in a domain where price discovery, liquidity distribution, and order book transparency matter deeply. 
 
 The purpose of this project is to:
 
@@ -14,8 +14,6 @@ The purpose of this project is to:
 - Build practical tools that explore **order flow**, **liquidity imbalance**, **forecasting**, **volatility modeling**, and **sentiment analysis**.
 - Show how alternative signals (Google Trends, sentiment, SEC filings) can enhance understanding of market behavior.
 - Deliver the entire project in one unified app with multiple “labs,” mimicking an internal analytics platform for a trading marketplace.
-
-This repository showcases how I would contribute value as a data engineer, quantitative analyst, or ML engineer at Hiive.
 
 ## 🏗️ Architecture Overview
 
