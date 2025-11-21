@@ -20,7 +20,10 @@ if not DATABASE_URL:
     NAME = os.getenv("DB_NAME", "")
     PORT = os.getenv("DB_PORT", "")
 
-    DATABASE_URL = f"postgresql://{USER}:{PASS}@{HOST}:{PORT}/{NAME}"
+    if PORT:
+        DATABASE_URL = f"postgresql://{USER}:{PASS}@{HOST}:{PORT}/{NAME}"
+    else:
+        DATABASE_URL = f"postgresql://{USER}:{PASS}@{HOST}/{NAME}"
 
 # --- App configuration ---
 

@@ -14,3 +14,4 @@ torch
 pytrends
 nltk
 xgboost
+statsmodels
