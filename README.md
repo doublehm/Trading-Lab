@@ -96,3 +96,55 @@ Each lab is modular and independent, but all share:
 - centralized analytics utilities
 - a unified dashboard UI
 
+## 🚀 Getting Started
+
+### Prerequisites
+- [Docker](https://docs.docker.com/get-docker/)
+- [Docker Compose](https://docs.docker.com/compose/install/) (optional, but recommended)
+
+### Setup
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/trading-lab.git
+   cd trading-lab
+   ```
+
+2. **Configure Environment**
+   Copy the example environment file and configure your credentials:
+   ```bash
+   cp .env.example .env
+   ```
+   Edit `.env` to set your database credentials. If using Docker Compose, ensure `POSTGRES_*` variables are set.
+
+### Running with Docker Compose (Recommended)
+
+This will start the database, the web app, and the ETL worker all together.
+
+```bash
+docker-compose up --build
+```
+
+- **Web App**: Access at [http://localhost:8501](http://localhost:8501)
+- **Database**: Accessible internally at `db:5432`
+
+### Running Manually with Docker
+
+If you prefer to run containers individually or use a local database:
+
+1. **Build the image**
+   ```bash
+   docker build -t trading-lab .
+   ```
+
+2. **Run the Web App**
+   ```bash
+   # Using host network (Linux) to access local DB
+   docker run --network="host" --env-file .env -p 8501:8501 trading-lab
+   ```
+
+3. **Run the ETL Worker**
+   ```bash
+   docker run --network="host" --env-file .env trading-lab python -m src.data_pipeline.etl_jobs
+   ```
+
