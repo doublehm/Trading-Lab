@@ -1,0 +1,48 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16
+    container_name: trading_lab_db
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  app:
+    build: .
+    container_name: trading_lab_app
+    restart: unless-stopped
+    command: >
+      streamlit run src/dashboards/streamlit_app.py --server.port=8501 --server.address=0.0.0.0
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+    depends_on:
+      - db
+    ports:
+      - "8501:8501"
+
+  etl:
+    build: .
+    container_name: trading_lab_etl
+    restart: unless-stopped
+    command: >
+      python -m src.data_pipeline.etl_jobs
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+    depends_on:
+      - db
+
+volumes:
+  db_data:
