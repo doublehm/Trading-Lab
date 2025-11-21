@@ -106,7 +106,7 @@ Each lab is modular and independent, but all share:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/trading-lab.git
+   git clone https://github.com/doublehm/trading-lab.git
    cd trading-lab
    ```
 
