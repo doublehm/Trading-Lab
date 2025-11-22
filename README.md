@@ -1,6 +1,9 @@
 
 # Trading Lab
-A modular analytics platform designed to explore order books, liquidity, forecasting, volatility, alternative data, and sentiment-driven trading strategies. 
+A modular analytics platform designed to explore order books, liquidity, forecasting, volatility, alternative data, and sentiment-driven trading strategies.
+
+<img width="1024" height="784" alt="tradinglab" src="https://github.com/user-attachments/assets/17eb36c2-8721-44c2-8ec8-8a9b7b0378f1" />
+
 
 This project simulates the type of internal analytics tooling used by modern electronic marketplaces. It combines real-time data pipelines, machine learning models, and interactive dashboards to demonstrate practical insights into price discovery, liquidity dynamics, and market behavior.
 
